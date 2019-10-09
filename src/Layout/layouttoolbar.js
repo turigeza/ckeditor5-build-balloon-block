@@ -14,12 +14,9 @@ export default class LayoutToolbar extends Plugin {
 	}
 
 	afterInit() {
-		console.log( 'afterInitafterInit' );
-
 		const editor = this.editor;
 		const widgetToolbarRepository = editor.plugins.get( WidgetToolbarRepository );
 
-		console.log( editor.config.get( 'layout.toolbar' ) );
 		widgetToolbarRepository.register( 'layout', {
 			ariaLabel: 'Layout toolbar',
 			items: editor.config.get( 'layout.toolbar' ) || [],

@@ -25,10 +25,12 @@ import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 // import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 // import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
+
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
+
 // import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
@@ -41,7 +43,9 @@ import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 
 import SGSImageBrowser from '../src/SGSImageBrowser/SGSImageBrowser';
 import Layout from '../src/Layout/Layout';
-// import LayoutToolbar from '../src/Layout/LayoutToolbar';
+import LayoutToolbar from '../src/Layout/LayoutToolbar';
+
+// import AllowClasses from '../src/AllowClasses/AllowClasses';
 
 import '../theme/theme.css';
 
@@ -85,7 +89,7 @@ BalloonEditor.builtinPlugins = [
 	// CUSTOM PLUGINS
 	SGSImageBrowser,
 	Layout,
-	// LayoutToolbar,
+	LayoutToolbar,
 
 ];
 
@@ -121,6 +125,7 @@ BalloonEditor.defaultConfig = {
 		]
 	},
 	image: {
+		styles: [ 'full', 'side', 'alignLeft', 'alignCenter', 'alignRight' ],
 		toolbar: [
 			'imageStyle:full',
 			'imageStyle:side',
@@ -128,14 +133,17 @@ BalloonEditor.defaultConfig = {
 			'imageTextAlternative'
 		]
 	},
-	// layout: {
-	// 	toolbar: [
-	// 		'imageStyle:full',
-	// 		'imageStyle:side',
-	// 		'|',
-	// 		'imageTextAlternative'
-	// 	]
-	// },
+	layout: {
+		toolbar: [
+			'imageStyle:full',
+			'imageStyle:side',
+			'imageStyle:left',
+			'imageStyle:center',
+			'imageStyle:right',
+			'|',
+			'imageTextAlternative'
+		]
+	},
 	heading: {
 		options: [ {
 			model: 'paragraph',
@@ -155,6 +163,17 @@ BalloonEditor.defaultConfig = {
 			class: 'ck-heading_heading2'
 		},
 		{
+			model: 'headingFancy',
+			view: {
+				name: 'h2',
+				classes: 'fancy'
+			},
+			title: 'Heading 2 (fancy)',
+			class: 'ck-heading_heading2_fancy',
+
+			// It needs to be converted before the standard 'heading2'.
+			converterPriority: 'high'
+		}, {
 			model: 'heading3',
 			view: 'h3',
 			title: 'Heading 3',

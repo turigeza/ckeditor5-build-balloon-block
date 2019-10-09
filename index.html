@@ -23,9 +23,12 @@
 			margin: auto;
 			padding: 0;
 		}
+        .fancy, .ck.ck-list__item .ck-button.ck-on.ck-heading_heading2_fancy{
+            color: pink;
+        }
         /* reset borders and oulines */
         .ck .ck-widget{
-            outline: none !IMPORTANT;
+            outline: 2px solid transparent !IMPORTANT;
             border: none !IMPORTANT;
             transition: none;
         }
@@ -47,6 +50,7 @@
         .ck .ck-widget:hover{
             outline: 2px solid #eee !IMPORTANT;
             outline-offset: -2px;
+            transition: outline-color  0.4s ease 0s;
         }
         .ck .ck-widget.ck-widget_selected{
             outline: 2px solid Tomato !IMPORTANT;
@@ -190,10 +194,15 @@
 			overflow-y: auto;
 			clear: both;
             position: relative;
-            margin-left: -15px;
-            margin-right: -15px;
+            /* margin-left: -15px;
+            margin-right: -15px; */
 		}
-
+        .layout>div:first-child{
+            padding-left: 0;
+        }
+        .layout>div:last-child{
+            padding-right: 0;
+        }
 		.cl_1 {
 			width: 8.333333%;
 		}
@@ -251,8 +260,9 @@
 
 		<div class="tg_widget layout layout_12" data-category="layouts" data-key="layout_12" data-widget_id="2f9e8c12-0534-4658-a81a-20a8dc206b94">
 			<div class="tg_editable cl_12" data-editable_id="content">
-				<h3>Lorem Ipsum</h3>
-				<p>Vivamus rhoncus justo vitae sem consequat, ac tristique neque maximus. Etiam et sapien vel ipsum tincidunt iaculis. Nullam sed purus mi. Morbi eu vestibulum augue, at dignissim metus.</p>
+				<h2 class="fancy">Lorem Ipsum</h2>
+				<p class="small">Vivamus rhoncus justo vitae sem consequat, ac tristique neque maximus. Etiam et sapien vel ipsum tincidunt iaculis. Nullam sed purus mi. Morbi eu vestibulum augue, at dignissim metus.</p>
+                <p class="big">Vivamus rhoncus justo vitae sem consequat, ac tristique neque maximus. Etiam et sapien vel ipsum tincidunt iaculis. Nullam sed purus mi. Morbi eu vestibulum augue, at dignissim metus.</p>
 			</div>
 		</div>
 		<div class="tg_widget layout layout_48" data-category="layouts" data-key="layout_48" data-widget_id="1c686b87-30a0-4faa-807c-7999a0fc995e">
