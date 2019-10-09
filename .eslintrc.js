@@ -16,7 +16,7 @@ module.exports = {
     },
     // add your custom rules here
     'rules': {
-        
+        'max-len': 0,
       // // allow async-await
       // 'generator-star-spacing': 'off',
       //
@@ -42,7 +42,7 @@ module.exports = {
       // 'indent': ['error', 4, {}], // so i prefer 4 spaces to 2,
       // 'no-unused-vars': 1,
       // 'vue/no-unused-vars': 0,
-      // 'camelcase': ["off", { properties: "never" }],
+      'camelcase': ["off", { properties: "never" }],
       // // 'import/no-duplicates': 0
       // 'vue/no-unused-components': 0
     }

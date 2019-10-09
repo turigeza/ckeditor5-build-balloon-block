@@ -93,6 +93,7 @@
     }
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-alignment": "^11.2.0",
     "@ckeditor/ckeditor5-remove-format": "^10.0.4",
     "@ckeditor/ckeditor5-widget": "^11.1.0"
   }

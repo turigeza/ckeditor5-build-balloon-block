@@ -1,0 +1,15 @@
+.layout.ck-widget:hover::after{
+    content: '';
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-top: 60px solid var(--ck-color-widget-hover-border);
+    clear: both;
+    cursor: pointer;
+}
+.layout.ck-widget_selected:hover::after{
+    border-top: 60px solid var(--ck-color-focus-border);
+}

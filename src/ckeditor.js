@@ -8,7 +8,9 @@ import BalloonEditorBase from '@ckeditor/ckeditor5-editor-balloon/src/balloonedi
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 // import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
+
 import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar';
 
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
@@ -36,8 +38,10 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 // import Table from '@ckeditor/ckeditor5-table/src/table';
 // import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
+
 import SGSImageBrowser from '../src/SGSImageBrowser/SGSImageBrowser';
-import SGSLayout from '../src/SGSLayout/SGSLayout';
+import Layout from '../src/Layout/Layout';
+// import LayoutToolbar from '../src/Layout/LayoutToolbar';
 
 import '../theme/theme.css';
 
@@ -47,6 +51,7 @@ export default class BalloonEditor extends BalloonEditorBase {}
 BalloonEditor.builtinPlugins = [
 	Essentials,
 	// UploadAdapter,
+	Alignment,
 	Autoformat,
 	BlockToolbar,
 
@@ -67,6 +72,7 @@ BalloonEditor.builtinPlugins = [
 	ImageCaption,
 	ImageStyle,
 	ImageToolbar,
+
 	// ImageUpload,
 	Link,
 	List,
@@ -78,7 +84,8 @@ BalloonEditor.builtinPlugins = [
 
 	// CUSTOM PLUGINS
 	SGSImageBrowser,
-	SGSLayout,
+	Layout,
+	// LayoutToolbar,
 
 ];
 
@@ -87,6 +94,7 @@ BalloonEditor.defaultConfig = {
 	blockToolbar: [
 		'heading',
 		'|',
+		'alignment',
 		'bulletedList',
 		'numberedList',
 		// 'imageUpload',
@@ -94,7 +102,7 @@ BalloonEditor.defaultConfig = {
 		// 'insertTable',
 		'mediaEmbed',
 		'SGSImageBrowser',
-		'SGSLayout',
+		'Layout',
 		'|',
 		'undo',
 		'redo'
@@ -120,6 +128,14 @@ BalloonEditor.defaultConfig = {
 			'imageTextAlternative'
 		]
 	},
+	// layout: {
+	// 	toolbar: [
+	// 		'imageStyle:full',
+	// 		'imageStyle:side',
+	// 		'|',
+	// 		'imageTextAlternative'
+	// 	]
+	// },
 	heading: {
 		options: [ {
 			model: 'paragraph',
