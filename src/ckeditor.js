@@ -44,6 +44,7 @@ import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 import SGSImageBrowser from '../src/SGSImageBrowser/SGSImageBrowser';
 import Layout from '../src/Layout/Layout';
 import LayoutToolbar from '../src/Layout/LayoutToolbar';
+import CustomHtml from '../src/CustomHtml/CustomHtml';
 
 // import AllowClasses from '../src/AllowClasses/AllowClasses';
 
@@ -90,7 +91,7 @@ BalloonEditor.builtinPlugins = [
 	SGSImageBrowser,
 	Layout,
 	LayoutToolbar,
-
+	CustomHtml
 ];
 
 // Editor configuration.
@@ -107,6 +108,7 @@ BalloonEditor.defaultConfig = {
 		'mediaEmbed',
 		'SGSImageBrowser',
 		'Layout',
+		'CustomHtml',
 		'|',
 		'undo',
 		'redo'
@@ -137,9 +139,6 @@ BalloonEditor.defaultConfig = {
 		toolbar: [
 			'imageStyle:full',
 			'imageStyle:side',
-			'imageStyle:left',
-			'imageStyle:center',
-			'imageStyle:right',
 			'|',
 			'imageTextAlternative'
 		]
