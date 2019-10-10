@@ -1,0 +1,44 @@
+.custom_html.ck-widget::after{
+    content: '';
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-top: 60px solid white;
+    clear: both;
+    cursor: pointer;
+    z-index: 1;
+    /* hide this */
+    visibility: hidden;
+    opacity: 0;
+
+}
+.custom_html.ck-widget:hover::after{
+    border-left: 60px solid transparent;
+    border-top: 60px solid #eee;
+
+    /* show on hover */
+    transition: border-color 0.4s ease 0s;
+    visibility: visible;
+    opacity: 100;
+}
+.custom_html.ck-widget.ck-widget_selected::after{
+    border-left: 30px solid transparent;
+    border-top: 30px solid Tomato;
+
+    /* show */
+    visibility: visible;
+    opacity: 100;
+}
+
+.custom_html.ck-widget.ck-widget_selected:hover::after{
+    border-left: 30px solid transparent;
+    border-top: 30px solid Tomato;
+
+    /* show on hover */
+    transition: border-color 0.4s ease 0s;
+    visibility: visible;
+    opacity: 100;
+}
