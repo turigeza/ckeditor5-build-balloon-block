@@ -257,9 +257,19 @@
 
 	<div id="editor">
         <div class="custom-html">
-            This some text within the custom html plugin. which will receive a paragraph.
-            <span class="someclass">Only the content remains. The spam is discarded</span>
-            <a href="heyh">This will remain because it matches the model.</a>
+            This is some text I don't want to edit just want to preserve it.
+            The div always have the class customHtml.
+
+            Ideally want it to be converted to a non editable widget.
+            Which can then behave as a widget.
+
+            Can be deleted / selected /copied / pasted etc ...
+            <p data-id="22221111">
+            Unfortunately the p tab gets discarded
+            because it does not fit any model in the editor. </p>    
+            <p class="someclass">
+            But the content here is arbitrary and I don't want to edit it so I don't need a model for it.
+            I just would like the html stripped from this widget.</p>
         </div>
 		<div class="tg_widget layout layout_12" data-category="layouts" data-key="layout_12" data-widget_id="2f9e8c12-0534-4658-a81a-20a8dc206b94">
             Test gets stripped which is fine here
