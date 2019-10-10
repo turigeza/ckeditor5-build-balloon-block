@@ -48,14 +48,14 @@ export default class CustomHtml extends Plugin {
 		return 'CustomHtml';
 	}
 
-	_defineSchema() { // ADDED
+	_defineSchema() {
 		const schema = this.editor.model.schema;
 
 		schema.register( 'customHtml', {
 			// Behaves like a self-contained object (e.g. an image).
 			isObject: true,
 			// Allow in places where other blocks are allowed (e.g. directly in the root).
-			allowWhere: '$block',
+			inheritAllFrom: '$block',
 			// allowAttributes: [ 'alt', 'src', 'srcset' ]
 		} );
 

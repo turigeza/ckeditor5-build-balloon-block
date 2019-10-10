@@ -107,7 +107,7 @@ export default class Layout extends Plugin {
 		this._columns.forEach( layout => {
 			schema.register( layout.model, {
 				// Cannot be split or left by the caret.
-				isLimit: false,
+				isLimit: true,
 				allowIn: [ 'layout_12', 'layout_48', 'layout_66', 'layout_84', 'layout_444', 'layout_3333' ],
 				allowContentOf: '$root'
 			} );
