@@ -91,9 +91,10 @@ export default class CustomHtml extends Plugin {
 				const div = viewWriter.createContainerElement( 'div', {
 					class: 'custom-html'
 				} );
-				return toWidget( div, viewWriter, {
+				const widget = toWidget( div, viewWriter, {
 					label: 'CustomHtml'
 				} );
+				return widget;
 			}
 		} );
 	}
