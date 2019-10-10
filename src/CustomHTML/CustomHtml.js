@@ -4,6 +4,7 @@ import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 import layout_icon_3333 from './theme/icons/layout_3333.svg';
 
 import InsertCustomHtmlCommand from './insertcustomhtmlcommand';
+import { createDropdown, addToolbarToDropdown } from '@ckeditor/ckeditor5-ui/src/dropdown/utils';
 
 import { toWidget, toWidgetEditable } from '@ckeditor/ckeditor5-widget/src/utils';
 import Widget from '@ckeditor/ckeditor5-widget/src/widget';
@@ -56,7 +57,7 @@ export default class Layout extends Plugin {
 			dropdownView.buttonView.set( {
 				label: 'Layout',
 				tooltip: true,
-				icon: layout_icon_12
+				icon: layout_icon_3333
 			} );
 
 			const insertLayoutCommand = editor.commands.get( 'insertLayout' );
