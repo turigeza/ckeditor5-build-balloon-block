@@ -17,6 +17,14 @@
         div{
             box-sizing: border-box;
         }
+        #save{
+            background-color: Salmon;
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            padding: 20px;
+            cursor: pointer;
+        }
 		#editor {
 			width: 700px;
 			margin: auto;
@@ -254,11 +262,11 @@
 </head>
 
 <body>
-
+    <div id="save">Save</div>
 	<div id="editor">
         <div class="custom-html">
             This is some text I don't want to edit just want to preserve it.
-            The div always have the class customHtml.
+            The div always have the class rawHtml.
 
             Ideally want it to be converted to a non editable widget.
             Which can then behave as a widget.
@@ -365,17 +373,24 @@
 			Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected
 			humour, or non-characteristic words etc.</p>
 	</div>
-	<script>
-		//import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
-		BalloonEditor
-			.create(document.querySelector('#editor'), {
 
-			})
+    <script>
+		//import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
+        let editor;
+
+		BalloonEditor
+			.create(document.querySelector('#editor'))
+            .then( newEditor => {
+                editor = newEditor;
+            })
 			.catch(error => {
 				console.error(error);
 			});
 
 		//BalloonEditor.builtinPlugins.map(plugin => console.log(plugin.pluginName));
+        document.getElementById('save').onclick=function(){
+            console.log(editor.getData());
+        }
 	</script>
 </body>
 

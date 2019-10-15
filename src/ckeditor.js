@@ -45,6 +45,7 @@ import SGSImageBrowser from '../src/SGSImageBrowser/SGSImageBrowser';
 import Layout from '../src/Layout/Layout';
 import LayoutToolbar from '../src/Layout/LayoutToolbar';
 import CustomHtml from '../src/CustomHtml/CustomHtml';
+// import RawHtml from '../src/RawHtml/RawHtml';
 
 // import AllowClasses from '../src/AllowClasses/AllowClasses';
 
@@ -88,10 +89,11 @@ BalloonEditor.builtinPlugins = [
 	// TableToolbar
 
 	// CUSTOM PLUGINS
-	SGSImageBrowser,
-	Layout,
-	LayoutToolbar,
-	CustomHtml
+	// SGSImageBrowser,
+	// Layout,
+	// LayoutToolbar,
+	CustomHtml,
+	// RawHtml
 ];
 
 // Editor configuration.
@@ -106,9 +108,10 @@ BalloonEditor.defaultConfig = {
 		'blockQuote',
 		// 'insertTable',
 		'mediaEmbed',
-		'SGSImageBrowser',
-		'Layout',
-		'CustomHtml',
+		// 'SGSImageBrowser',
+		// 'Layout',
+		// 'CustomHtml',
+		// 'RawHtml',
 		'|',
 		'undo',
 		'redo'

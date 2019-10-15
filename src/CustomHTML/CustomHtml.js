@@ -9,7 +9,7 @@ import {
 	toWidget
 } from '@ckeditor/ckeditor5-widget/src/utils';
 import Widget from '@ckeditor/ckeditor5-widget/src/widget';
-
+import { stringify } from '@ckeditor/ckeditor5-engine/src/dev-utils/view';
 import './theme/customhtml.css';
 
 export default class CustomHtml extends Plugin {
@@ -52,11 +52,10 @@ export default class CustomHtml extends Plugin {
 		const schema = this.editor.model.schema;
 
 		schema.register( 'customHtml', {
-			// Behaves like a self-contained object (e.g. an image).
 			isObject: true,
 			// Allow in places where other blocks are allowed (e.g. directly in the root).
-			inheritAllFrom: '$block',
-			// allowAttributes: [ 'alt', 'src', 'srcset' ]
+			allowWhere: '$block', // Do not allow other content inside so the children will not be converted.
+			allowAttributes: [ 'htmlContent' ]
 		} );
 
 		// 	schema.register( layout.model, {
@@ -72,29 +71,50 @@ export default class CustomHtml extends Plugin {
 
 		// customHtml converters
 		conversion.for( 'upcast' ).elementToElement( {
-			model: 'customHtml',
+			model: ( viewElement, writer ) => {
+				const stringifiedChildren = Array.from( viewElement.getChildren() ).map( child => stringify( child ) ).join( '' );
+
+				return writer.createElement( 'customHtml', {
+					htmlContent: stringifiedChildren
+				} );
+			},
 			view: {
 				name: 'div',
-				classes: 'custom-html',
+				classes: 'custom-html'
 			}
 		} );
+
 		conversion.for( 'dataDowncast' ).elementToElement( {
 			model: 'customHtml',
-			view: {
-				name: 'div',
-				classes: 'custom-html',
+			view: ( modelElement, viewWriter ) => {
+				const div = viewWriter.createUIElement( 'div', {
+					class: 'custom-html'
+				}, function( domDocument ) {
+					const domElement = this.toDomElement( domDocument );
+
+					domElement.innerHTML = modelElement.getAttribute( 'htmlContent' );
+
+					return domElement;
+				} );
+
+				return div;
 			}
 		} );
+
 		conversion.for( 'editingDowncast' ).elementToElement( {
 			model: 'customHtml',
 			view: ( modelElement, viewWriter ) => {
-				const div = viewWriter.createContainerElement( 'div', {
-					class: 'custom-html'
+				const div = viewWriter.createUIElement( 'div', { class: 'custom-html' }, function( domDocument ) {
+					const domElement = this.toDomElement( domDocument );
+
+					domElement.innerHTML = modelElement.getAttribute( 'htmlContent' );
+
+					return domElement;
 				} );
-				const widget = toWidget( div, viewWriter, {
+
+				return toWidget( div, viewWriter, {
 					label: 'CustomHtml'
 				} );
-				return widget;
 			}
 		} );
 	}
