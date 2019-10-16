@@ -42,8 +42,8 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 
 // import SGSImageBrowser from '../src/SGSImageBrowser/SGSImageBrowser';
-// import Layout from '../src/Layout/Layout';
-// import LayoutToolbar from '../src/Layout/LayoutToolbar';
+import Layout from '../src/Layout/Layout';
+import LayoutToolbar from '../src/Layout/LayoutToolbar';
 import CustomHtml from '../src/CustomHtml/CustomHtml';
 // import RawHtml from '../src/RawHtml/RawHtml';
 
@@ -90,8 +90,8 @@ BalloonEditor.builtinPlugins = [
 
 	// CUSTOM PLUGINS
 	// SGSImageBrowser,
-	// Layout,
-	// LayoutToolbar,
+	Layout,
+	LayoutToolbar,
 	CustomHtml,
 	// RawHtml
 ];
